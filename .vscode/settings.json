@@ -1,0 +1,22 @@
+{
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.black-formatter",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+      },
+    },
+    "pylint.args": ["--disable=C0114,C0115,C0116,E1101"],
+    "isort.args":["--profile", "black"],
+      "cSpell.language": "en,pt-BR",
+      "cSpell.enableFiletypes": [
+          "!python"
+      ],
+      "python.analysis.typeCheckingMode": "basic",
+      "python.analysis.autoImportCompletions": true,
+      "python.testing.pytestArgs": [
+        "."
+      ],
+      "python.testing.unittestEnabled": false,
+      "python.testing.pytestEnabled": true
+  }

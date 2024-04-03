@@ -1,0 +1,981 @@
+[
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryRepository",
+        "importPath": "src.core.category.application.category_repository",
+        "description": "src.core.category.application.category_repository",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.category_repository",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryRepository",
+        "importPath": "src.core.category.application.category_repository",
+        "description": "src.core.category.application.category_repository",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.category_repository",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryRepository",
+        "importPath": "src.core.category.application.category_repository",
+        "description": "src.core.category.application.category_repository",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.category_repository",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryRepository",
+        "importPath": "src.core.category.application.category_repository",
+        "description": "src.core.category.application.category_repository",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.category_repository",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryRepository",
+        "importPath": "src.core.category.application.category_repository",
+        "description": "src.core.category.application.category_repository",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.category_repository",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryRepository",
+        "importPath": "src.core.category.application.category_repository",
+        "description": "src.core.category.application.category_repository",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.category_repository",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryRepository",
+        "importPath": "src.core.category.application.category_repository",
+        "description": "src.core.category.application.category_repository",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.category_repository",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryRepository",
+        "importPath": "src.core.category.application.category_repository",
+        "description": "src.core.category.application.category_repository",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.category_repository",
+        "documentation": {}
+    },
+    {
+        "label": "InvalidCategoryData",
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryDoesNotExistsException",
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryDoesNotExistsException",
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryAlreadyExistsException",
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "InvalidCategoryData",
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryDoesNotExistsException",
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "InvalidCategoryData",
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryDoesNotExistsException",
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "InvalidCategoryData",
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryAlreadyExistsException",
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "isExtraImport": true,
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategory",
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategoryRequest",
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategoryResponse",
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategory",
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategoryRequest",
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategoryResponse",
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategory",
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategoryRequest",
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategoryResponse",
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "InMemoryCategoryRepository",
+        "importPath": "src.core.category.infra.in_memory_category_repositry",
+        "description": "src.core.category.infra.in_memory_category_repositry",
+        "isExtraImport": true,
+        "detail": "src.core.category.infra.in_memory_category_repositry",
+        "documentation": {}
+    },
+    {
+        "label": "InMemoryCategoryRepository",
+        "importPath": "src.core.category.infra.in_memory_category_repositry",
+        "description": "src.core.category.infra.in_memory_category_repositry",
+        "isExtraImport": true,
+        "detail": "src.core.category.infra.in_memory_category_repositry",
+        "documentation": {}
+    },
+    {
+        "label": "InMemoryCategoryRepository",
+        "importPath": "src.core.category.infra.in_memory_category_repositry",
+        "description": "src.core.category.infra.in_memory_category_repositry",
+        "isExtraImport": true,
+        "detail": "src.core.category.infra.in_memory_category_repositry",
+        "documentation": {}
+    },
+    {
+        "label": "InMemoryCategoryRepository",
+        "importPath": "src.core.category.infra.in_memory_category_repositry",
+        "description": "src.core.category.infra.in_memory_category_repositry",
+        "isExtraImport": true,
+        "detail": "src.core.category.infra.in_memory_category_repositry",
+        "documentation": {}
+    },
+    {
+        "label": "InMemoryCategoryRepository",
+        "importPath": "src.core.category.infra.in_memory_category_repositry",
+        "description": "src.core.category.infra.in_memory_category_repositry",
+        "isExtraImport": true,
+        "detail": "src.core.category.infra.in_memory_category_repositry",
+        "documentation": {}
+    },
+    {
+        "label": "InMemoryCategoryRepository",
+        "importPath": "src.core.category.infra.in_memory_category_repositry",
+        "description": "src.core.category.infra.in_memory_category_repositry",
+        "isExtraImport": true,
+        "detail": "src.core.category.infra.in_memory_category_repositry",
+        "documentation": {}
+    },
+    {
+        "label": "InMemoryCategoryRepository",
+        "importPath": "src.core.category.infra.in_memory_category_repositry",
+        "description": "src.core.category.infra.in_memory_category_repositry",
+        "isExtraImport": true,
+        "detail": "src.core.category.infra.in_memory_category_repositry",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteCategory",
+        "importPath": "src.core.category.application.use_cases.delete_category",
+        "description": "src.core.category.application.use_cases.delete_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.delete_category",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteCategoryRequest",
+        "importPath": "src.core.category.application.use_cases.delete_category",
+        "description": "src.core.category.application.use_cases.delete_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.delete_category",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteCategory",
+        "importPath": "src.core.category.application.use_cases.delete_category",
+        "description": "src.core.category.application.use_cases.delete_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.delete_category",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteCategoryRequest",
+        "importPath": "src.core.category.application.use_cases.delete_category",
+        "description": "src.core.category.application.use_cases.delete_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.delete_category",
+        "documentation": {}
+    },
+    {
+        "label": "GetCategory",
+        "importPath": "src.core.category.application.use_cases.get_category",
+        "description": "src.core.category.application.use_cases.get_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.get_category",
+        "documentation": {}
+    },
+    {
+        "label": "GetCategoryRequest",
+        "importPath": "src.core.category.application.use_cases.get_category",
+        "description": "src.core.category.application.use_cases.get_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.get_category",
+        "documentation": {}
+    },
+    {
+        "label": "GetCategoryResponse",
+        "importPath": "src.core.category.application.use_cases.get_category",
+        "description": "src.core.category.application.use_cases.get_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.get_category",
+        "documentation": {}
+    },
+    {
+        "label": "GetCategory",
+        "importPath": "src.core.category.application.use_cases.get_category",
+        "description": "src.core.category.application.use_cases.get_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.get_category",
+        "documentation": {}
+    },
+    {
+        "label": "GetCategoryRequest",
+        "importPath": "src.core.category.application.use_cases.get_category",
+        "description": "src.core.category.application.use_cases.get_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.get_category",
+        "documentation": {}
+    },
+    {
+        "label": "GetCategoryResponse",
+        "importPath": "src.core.category.application.use_cases.get_category",
+        "description": "src.core.category.application.use_cases.get_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.get_category",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateCategory",
+        "importPath": "src.core.category.application.use_cases.update_category",
+        "description": "src.core.category.application.use_cases.update_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.update_category",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateCategoryRequest",
+        "importPath": "src.core.category.application.use_cases.update_category",
+        "description": "src.core.category.application.use_cases.update_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.update_category",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateCategory",
+        "importPath": "src.core.category.application.use_cases.update_category",
+        "description": "src.core.category.application.use_cases.update_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.update_category",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateCategoryRequest",
+        "importPath": "src.core.category.application.use_cases.update_category",
+        "description": "src.core.category.application.use_cases.update_category",
+        "isExtraImport": true,
+        "detail": "src.core.category.application.use_cases.update_category",
+        "documentation": {}
+    },
+    {
+        "label": "MagicMock",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "create_autospec",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "MagicMock",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "create_autospec",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "create_autospec",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategoryRequest",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "peekOfCode": "class CreateCategoryRequest:\n    name: str\n    description: str = \"\"\n    is_active: bool = True\n@dataclass\nclass CreateCategoryResponse:\n    id: UUID\nclass CreateCategory:\n    def __init__(self, repository: CategoryRepository):\n        self.repository = repository",
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategoryResponse",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "peekOfCode": "class CreateCategoryResponse:\n    id: UUID\nclass CreateCategory:\n    def __init__(self, repository: CategoryRepository):\n        self.repository = repository\n    def execute(self, request: CreateCategoryRequest) -> CreateCategoryResponse:\n        try:\n            category = Category(\n                name=request.name,\n                description=request.description,",
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "CreateCategory",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.create_category",
+        "description": "src.core.category.application.use_cases.create_category",
+        "peekOfCode": "class CreateCategory:\n    def __init__(self, repository: CategoryRepository):\n        self.repository = repository\n    def execute(self, request: CreateCategoryRequest) -> CreateCategoryResponse:\n        try:\n            category = Category(\n                name=request.name,\n                description=request.description,\n                is_active=request.is_active,\n            )",
+        "detail": "src.core.category.application.use_cases.create_category",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteCategoryRequest",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.delete_category",
+        "description": "src.core.category.application.use_cases.delete_category",
+        "peekOfCode": "class DeleteCategoryRequest:\n    id: UUID\nclass DeleteCategory:\n    def __init__(self, repository: CategoryRepository):\n        self.repository = repository\n    def execute(self, request: DeleteCategoryRequest) -> None:\n        category = self.repository.get_by_id(request.id)\n        if not category:\n            raise CategoryDoesNotExistsException(\n                f\"Category id {request.id} does not exists\"",
+        "detail": "src.core.category.application.use_cases.delete_category",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteCategory",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.delete_category",
+        "description": "src.core.category.application.use_cases.delete_category",
+        "peekOfCode": "class DeleteCategory:\n    def __init__(self, repository: CategoryRepository):\n        self.repository = repository\n    def execute(self, request: DeleteCategoryRequest) -> None:\n        category = self.repository.get_by_id(request.id)\n        if not category:\n            raise CategoryDoesNotExistsException(\n                f\"Category id {request.id} does not exists\"\n            )\n        self.repository.delete(category.id)",
+        "detail": "src.core.category.application.use_cases.delete_category",
+        "documentation": {}
+    },
+    {
+        "label": "InvalidCategoryData",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "peekOfCode": "class InvalidCategoryData(Exception):\n    pass\nclass CategoryDoesNotExistsException(Exception):\n    pass\nclass CategoryAlreadyExistsException(Exception):\n    pass",
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryDoesNotExistsException",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "peekOfCode": "class CategoryDoesNotExistsException(Exception):\n    pass\nclass CategoryAlreadyExistsException(Exception):\n    pass",
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryAlreadyExistsException",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.exceptions",
+        "description": "src.core.category.application.use_cases.exceptions",
+        "peekOfCode": "class CategoryAlreadyExistsException(Exception):\n    pass",
+        "detail": "src.core.category.application.use_cases.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "GetCategoryRequest",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.get_category",
+        "description": "src.core.category.application.use_cases.get_category",
+        "peekOfCode": "class GetCategoryRequest:\n    id: UUID\n@dataclass\nclass GetCategoryResponse:\n    id: UUID\n    name: str\n    description: str\n    is_active: bool\nclass GetCategory:\n    def __init__(self, repository: CategoryRepository):",
+        "detail": "src.core.category.application.use_cases.get_category",
+        "documentation": {}
+    },
+    {
+        "label": "GetCategoryResponse",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.get_category",
+        "description": "src.core.category.application.use_cases.get_category",
+        "peekOfCode": "class GetCategoryResponse:\n    id: UUID\n    name: str\n    description: str\n    is_active: bool\nclass GetCategory:\n    def __init__(self, repository: CategoryRepository):\n        self.repository = repository\n    def execute(self, request: GetCategoryRequest) -> GetCategoryResponse:\n        category = self.repository.get_by_id(request.id)",
+        "detail": "src.core.category.application.use_cases.get_category",
+        "documentation": {}
+    },
+    {
+        "label": "GetCategory",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.get_category",
+        "description": "src.core.category.application.use_cases.get_category",
+        "peekOfCode": "class GetCategory:\n    def __init__(self, repository: CategoryRepository):\n        self.repository = repository\n    def execute(self, request: GetCategoryRequest) -> GetCategoryResponse:\n        category = self.repository.get_by_id(request.id)\n        if not category:\n            raise CategoryDoesNotExistsException(\n                f\"Category id {request.id} does not exists\"\n            )\n        return GetCategoryResponse(",
+        "detail": "src.core.category.application.use_cases.get_category",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateCategoryRequest",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.update_category",
+        "description": "src.core.category.application.use_cases.update_category",
+        "peekOfCode": "class UpdateCategoryRequest:\n    id: UUID\n    name: str | None = None\n    description: str | None = None\n    is_active: bool | None = None\nclass UpdateCategory:\n    def __init__(self, repository):\n        self.repository = repository\n    def execute(self, request: UpdateCategoryRequest) -> None:\n        category = self.repository.get_by_id(request.id)",
+        "detail": "src.core.category.application.use_cases.update_category",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateCategory",
+        "kind": 6,
+        "importPath": "src.core.category.application.use_cases.update_category",
+        "description": "src.core.category.application.use_cases.update_category",
+        "peekOfCode": "class UpdateCategory:\n    def __init__(self, repository):\n        self.repository = repository\n    def execute(self, request: UpdateCategoryRequest) -> None:\n        category = self.repository.get_by_id(request.id)\n        name = category.name\n        description = category.description\n        if request.name is not None:\n            if self.repository.get_by_name(request.name):\n                raise CategoryAlreadyExistsException(",
+        "detail": "src.core.category.application.use_cases.update_category",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryRepository",
+        "kind": 6,
+        "importPath": "src.core.category.application.category_repository",
+        "description": "src.core.category.application.category_repository",
+        "peekOfCode": "class CategoryRepository(ABC):\n    @abstractmethod\n    def save(self, category: Category):\n        raise NotImplementedError\n    @abstractmethod\n    def get_by_id(self, category_id) -> Category | None:\n        raise NotImplementedError\n    @abstractmethod\n    def get_by_name(self, name: str) -> Category | None:\n        raise NotImplementedError",
+        "detail": "src.core.category.application.category_repository",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "kind": 6,
+        "importPath": "src.core.category.domain.category",
+        "description": "src.core.category.domain.category",
+        "peekOfCode": "class Category:\n    name: str\n    description: str = \"\"\n    is_active: bool = True\n    id: UUID = field(default_factory=uuid.uuid4)\n    def __post_init__(self):\n        self.validate()\n    def validate(self):\n        if len(self.name) > 255:\n            raise ValueError(\"Name must be less than 255 characters\")",
+        "detail": "src.core.category.domain.category",
+        "documentation": {}
+    },
+    {
+        "label": "InMemoryCategoryRepository",
+        "kind": 6,
+        "importPath": "src.core.category.infra.in_memory_category_repositry",
+        "description": "src.core.category.infra.in_memory_category_repositry",
+        "peekOfCode": "class InMemoryCategoryRepository(CategoryRepository):\n    def __init__(self, categories=None):\n        self.categories = categories or []\n    def save(self, category: Category) -> None:\n        self.categories.append(category)\n    def get_by_id(self, category_id: UUID) -> Category | None:\n        for category in self.categories:\n            if category.id == category_id:\n                return category\n        return None",
+        "detail": "src.core.category.infra.in_memory_category_repositry",
+        "documentation": {}
+    },
+    {
+        "label": "TestCreatecategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.application.integration.test_create_category",
+        "description": "src.core.category.tests.application.integration.test_create_category",
+        "peekOfCode": "class TestCreatecategory:\n    def test_create_category_with_vallid_data(self):\n        repository = InMemoryCategoryRepository()\n        use_case = CreateCategory(repository=repository)\n        request = CreateCategoryRequest(\n            name=\"Movie\",\n            description=\"Some description\",\n            is_active=True,\n        )\n        response = use_case.execute(request)",
+        "detail": "src.core.category.tests.application.integration.test_create_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestDeleteCAtegory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.application.integration.test_delete_category",
+        "description": "src.core.category.tests.application.integration.test_delete_category",
+        "peekOfCode": "class TestDeleteCAtegory:\n    def test_delete_category_from_repository(self):\n        category_film = Category(\n            name=\"Movie\",\n            description=\"Some description\",\n        )\n        category_serie = Category(\n            name=\"Serie\",\n            description=\"Some description\",\n        )",
+        "detail": "src.core.category.tests.application.integration.test_delete_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestGetCategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.application.integration.test_get_category",
+        "description": "src.core.category.tests.application.integration.test_get_category",
+        "peekOfCode": "class TestGetCategory:\n    def test_get_category_by_id(self):\n        category_film = Category(\n            name=\"Movie\",\n            description=\"Some description\",\n        )\n        category_serie = Category(\n            name=\"Serie\",\n            description=\"Some description\",\n        )",
+        "detail": "src.core.category.tests.application.integration.test_get_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestUpdateCategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.application.integration.test_update_category",
+        "description": "src.core.category.tests.application.integration.test_update_category",
+        "peekOfCode": "class TestUpdateCategory:\n    def test_update_category_name_and_description(self):\n        category = Category(\n            name=\"Movie\",\n            description=\"Some description\",\n            is_active=True,\n        )\n        repository = InMemoryCategoryRepository([category])\n        use_case = UpdateCategory(repository=repository)\n        request = UpdateCategoryRequest(",
+        "detail": "src.core.category.tests.application.integration.test_update_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestCreatecategoryInRepository",
+        "kind": 6,
+        "importPath": "src.core.category.tests.application.unit.test_create_category",
+        "description": "src.core.category.tests.application.unit.test_create_category",
+        "peekOfCode": "class TestCreatecategoryInRepository:\n    def test_create_category_with_vallid_data(self):\n        mock_repository = MagicMock(CategoryRepository)\n        use_case = CreateCategory(repository=mock_repository)\n        request = CreateCategoryRequest(\n            name=\"Movie\",\n            description=\"Some description\",\n            is_active=True,\n        )\n        response = use_case.execute(request)",
+        "detail": "src.core.category.tests.application.unit.test_create_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestCreatecategoryInMemoryRepository",
+        "kind": 6,
+        "importPath": "src.core.category.tests.application.unit.test_create_category",
+        "description": "src.core.category.tests.application.unit.test_create_category",
+        "peekOfCode": "class TestCreatecategoryInMemoryRepository:\n    def test_create_category_with_vallid_data(self):\n        mock_repository = MagicMock(InMemoryCategoryRepository)\n        use_case = CreateCategory(repository=mock_repository)\n        request = CreateCategoryRequest(\n            name=\"Movie\",\n            description=\"Some description\",\n            is_active=True,\n        )\n        response = use_case.execute(request)",
+        "detail": "src.core.category.tests.application.unit.test_create_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestDeleteCategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.application.unit.test_delete_category",
+        "description": "src.core.category.tests.application.unit.test_delete_category",
+        "peekOfCode": "class TestDeleteCategory:\n    def test_delete_category_from_repository(self):\n        category = Category(name=\"Movie\")\n        mock_repository = create_autospec(CategoryRepository)\n        mock_repository.get_by_id.return_value = category\n        use_case = DeleteCategory(mock_repository)\n        use_case.execute(DeleteCategoryRequest(id=category.id))\n        mock_repository.delete.assert_called_once_with(category.id)\n    def test_when_not_found_then_raise_exception(self):\n        mock_repository = create_autospec(CategoryRepository)",
+        "detail": "src.core.category.tests.application.unit.test_delete_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestGetCategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.application.unit.test_get_category",
+        "description": "src.core.category.tests.application.unit.test_get_category",
+        "peekOfCode": "class TestGetCategory:\n    def test_return_found_category(self):\n        category = Category(\n            name=\"Movie\",\n            description=\"Some description\",\n            is_active=True,\n        )\n        mock_repository = create_autospec(CategoryRepository)\n        mock_repository.get_by_id.return_value = category\n        use_case = GetCategory(repository=mock_repository)",
+        "detail": "src.core.category.tests.application.unit.test_get_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestUpdateCategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.application.unit.test_update_category",
+        "description": "src.core.category.tests.application.unit.test_update_category",
+        "peekOfCode": "class TestUpdateCategory:\n    def test_update_category_name(self):\n        category = Category(\n            id=uuid.uuid4(),\n            name=\"Movie\",\n            description=\"Some description\",\n            is_active=True,\n        )\n        mock_repository = create_autospec(CategoryRepository)\n        mock_repository.get_by_id.return_value = category",
+        "detail": "src.core.category.tests.application.unit.test_update_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestCategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.domain.test_category",
+        "description": "src.core.category.tests.domain.test_category",
+        "peekOfCode": "class TestCategory:\n    def test_name_is_required(self):\n        with pytest.raises(\n            TypeError, match=\"missing 1 required positional argument: 'name'\"\n        ):\n            Category()\n    def test_name_must_have_less_than_255_characters(self):\n        with pytest.raises(ValueError, match=\"Name must be less than 255 characters\"):\n            Category(name=\"a\" * 256)\n    def test_category_must_be_created_with_id_as_uuid_by_default(self):",
+        "detail": "src.core.category.tests.domain.test_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestUpdateCategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.domain.test_category",
+        "description": "src.core.category.tests.domain.test_category",
+        "peekOfCode": "class TestUpdateCategory:\n    def test_update_category_with_name_and_description(self):\n        category = Category(name=\"Movie\", description=\"Some description\")\n        category.update(\"Movie 2\", \"Some description 2\")\n        assert category.name == \"Movie 2\"\n        assert category.description == \"Some description 2\"\n    def test_update_category_with_invalid_name_raises_exception(self):\n        category = Category(name=\"Movie\", description=\"Some description\")\n        with pytest.raises(ValueError, match=\"Name must be less than 255 characters\"):\n            category.update(\"a\" * 256, \"Some description 2\")",
+        "detail": "src.core.category.tests.domain.test_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestActivate",
+        "kind": 6,
+        "importPath": "src.core.category.tests.domain.test_category",
+        "description": "src.core.category.tests.domain.test_category",
+        "peekOfCode": "class TestActivate:\n    def test_activate_inactive_category(self):\n        category = Category(\n            name=\"Movie\",\n            description=\"Some description\",\n            is_active=False,\n        )\n        category.activate()\n        assert category.is_active is True\n    def test_activate_active_category(self):",
+        "detail": "src.core.category.tests.domain.test_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestDeactivate",
+        "kind": 6,
+        "importPath": "src.core.category.tests.domain.test_category",
+        "description": "src.core.category.tests.domain.test_category",
+        "peekOfCode": "class TestDeactivate:\n    def test_deactivate_active_category(self):\n        category = Category(\n            name=\"Movie\",\n            description=\"Some description\",\n            is_active=True,\n        )\n        category.deactivate()\n        assert category.is_active is False\n    def test_deactivate_inactive_category(self):",
+        "detail": "src.core.category.tests.domain.test_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestEquality",
+        "kind": 6,
+        "importPath": "src.core.category.tests.domain.test_category",
+        "description": "src.core.category.tests.domain.test_category",
+        "peekOfCode": "class TestEquality:\n    def test_when_categories_have_same_id_they_are_equal(self):\n        common_id = uuid.uuid4()\n        category_1 = Category(name=\"Filme\", id=common_id)\n        category_2 = Category(name=\"Filme\", id=common_id)\n        assert category_1 == category_2\n    def test_equality_different_classes(self):\n        class Dummy:\n            pass\n        common_id = uuid.uuid4()",
+        "detail": "src.core.category.tests.domain.test_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestSaveCategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.infra.test_in_memory_category",
+        "description": "src.core.category.tests.infra.test_in_memory_category",
+        "peekOfCode": "class TestSaveCategory:\n    def test_can_save_category(self):\n        repository = InMemoryCategoryRepository()\n        category_film = Category(name=\"Movie\")\n        repository.save(category_film)\n        category_serie = Category(name=\"Serie\")\n        repository.save(category_serie)\n        assert len(repository.categories) == 2\n        assert repository.categories[0] == category_film\nclass TestGetByIdCategory:",
+        "detail": "src.core.category.tests.infra.test_in_memory_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestGetByIdCategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.infra.test_in_memory_category",
+        "description": "src.core.category.tests.infra.test_in_memory_category",
+        "peekOfCode": "class TestGetByIdCategory:\n    def test_can_get_by_id(self):\n        repository = InMemoryCategoryRepository()\n        category = Category(name=\"Movie\")\n        repository.save(category)\n        assert repository.get_by_id(category.id) == category\n    def test_get_by_id_raises_exception(self):\n        repository = InMemoryCategoryRepository()\n        category = Category(name=\"Movie\")\n        repository.save(category)",
+        "detail": "src.core.category.tests.infra.test_in_memory_category",
+        "documentation": {}
+    },
+    {
+        "label": "TestDeleteCategory",
+        "kind": 6,
+        "importPath": "src.core.category.tests.infra.test_in_memory_category",
+        "description": "src.core.category.tests.infra.test_in_memory_category",
+        "peekOfCode": "class TestDeleteCategory:\n    def test_can_delete(self):\n        category_film = Category(name=\"Movie\")\n        category_serie = Category(name=\"Serie\")\n        repository = InMemoryCategoryRepository([category_film, category_serie])\n        category_film2 = Category(name=\"Movie\")\n        repository.save(category_film2)\n        category_serie2 = Category(name=\"Serie\")\n        repository.save(category_serie2)\n        repository.delete(category_film.id)",
+        "detail": "src.core.category.tests.infra.test_in_memory_category",
+        "documentation": {}
+    }
+]
