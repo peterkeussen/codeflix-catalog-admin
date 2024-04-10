@@ -1,8 +1,10 @@
 
+import uuid
 import pytest
 from rest_framework.test import APIClient
 from rest_framework import status
 from core.category.domain.category import Category
+from core.genre.application.exceptions import GenreDoesNotExistsException
 from core.genre.domain.genre import Genre
 from django_project.category_app.repository import DjangoORMCategoryRepository
 from django_project.genre_app.repository import DjangoORMGenreRepository
@@ -136,3 +138,15 @@ class TestCreateAPI:
         saved_genre = genre_repository.get_by_id(created_genre_id)
         assert saved_genre.name == "Action"
         assert set(saved_genre.categories) == {category_movie.id, category_serie.id}
+        
+@pytest.mark.django_db
+class TestDeleteAPI:
+    def test_when_genre_does_not_exist_then_raise_404(self):
+        response = APIClient().delete(f"/api/genres/{uuid.uuid4()}/")
+        
+        assert response.status_code == 404
+        
+    def test_when_pk_is_invalid_then_raise_400(self):
+        response = APIClient().delete(f"/api/genres/invalid_pk/")
+        
+        assert response.status_code == 400

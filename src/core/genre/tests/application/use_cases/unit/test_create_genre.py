@@ -180,3 +180,4 @@ class TestCreateGenre:
 
         with pytest.raises(InvalidGenreData, match="Name cannot be empty"):
             use_case.execute(input)
+            

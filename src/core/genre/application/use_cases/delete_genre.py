@@ -17,4 +17,4 @@ class DeleteGenre:
         genre = self.repository.get_by_id(input.id)
         if not genre:
             raise GenreDoesNotExistsException(f"Genre id {input.id} does not exists")
-        self.repository.delete(genre.id)  # type: ignore
+        self.repository.delete(input.id)  # type: ignore

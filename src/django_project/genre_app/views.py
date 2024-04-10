@@ -1,13 +1,15 @@
+from uuid import UUID
 from rest_framework import viewsets
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
-from core.genre.application.exceptions import InvalidGenreData, RelatedCategoriesNotFound
+from core.genre.application.exceptions import GenreDoesNotExistsException, InvalidGenreData, RelatedCategoriesNotFound
 from core.genre.application.use_cases.create_genre import CreateGenre
+from core.genre.application.use_cases.delete_genre import DeleteGenre
 from core.genre.tests.application import use_cases
 from django_project.genre_app.repository import DjangoORMGenreRepository
 from django_project.category_app.repository import DjangoORMCategoryRepository
-from django_project.genre_app.serializers import CreateGenreInputSerializer, CreateGenreOutputSerializer, ListGenreResponseSerializer
+from django_project.genre_app.serializers import CreateGenreInputSerializer, CreateGenreOutputSerializer, DeleteGenreInputSerializer, ListGenreResponseSerializer
 from src.core.genre.application.use_cases.list_genre import (
     ListGenre,
 )
@@ -48,5 +50,16 @@ class GenreViewSet(viewsets.ViewSet):
     def partial_update(self):
         pass
 
-    def destroy(self):
-        pass
+    def destroy(self, request: Request, pk: UUID = None) -> Response:
+        request_data = DeleteGenreInputSerializer(data={"id": pk})
+        request_data.is_valid(raise_exception=True)
+
+        input = DeleteGenre.Input(**request_data.validated_data)
+        use_case = DeleteGenre(repository=DjangoORMGenreRepository())
+
+        try:
+            use_case.execute(input)
+        except GenreDoesNotExistsException:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
