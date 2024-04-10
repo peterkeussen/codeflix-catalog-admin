@@ -1,8 +1,9 @@
+from typing import Optional, Union
 from uuid import UUID
 
-from django_project.category_app.models import Category as CategoryModel
 from src.core.category.domain.category import Category
 from src.core.category.domain.category_repository import CategoryRepository
+from src.django_project.category_app.models import Category as CategoryModel
 
 
 class DjangoCategoryRepository(CategoryRepository):
@@ -39,7 +40,7 @@ class DjangoCategoryRepository(CategoryRepository):
             for category in categories
         ]
 
-    def get_by_id(self, category_id: UUID) -> Category | None:
+    def get_by_id(self, category_id: UUID) -> Optional[Category]:
         try:
             category = self.category_model.objects.get(id=category_id)
             return Category(
@@ -51,7 +52,7 @@ class DjangoCategoryRepository(CategoryRepository):
         except self.category_model.DoesNotExist:
             return None
 
-    def get_by_name(self, name: str) -> Category | None:
+    def get_by_name(self, name: str) -> Union[Category, None]:
         try:
             category = self.category_model.objects.get(name=name)
             return Category(

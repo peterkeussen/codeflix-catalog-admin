@@ -1,8 +1,8 @@
 from dataclasses import dataclass
+from typing import Optional
 from uuid import UUID
 
 from src.core.category.application.use_cases.exceptions import (
-    CategoryAlreadyExistsException,
     CategoryDoesNotExistsException,
     InvalidCategoryData,
 )
@@ -11,9 +11,9 @@ from src.core.category.application.use_cases.exceptions import (
 @dataclass
 class UpdateCategoryRequest:
     id: UUID
-    name: str | None = None
-    description: str | None = None
-    is_active: bool | None = None
+    name: Optional[str] = None
+    description: Optional[str] = None
+    is_active: Optional[bool] = None
 
 
 class UpdateCategory:

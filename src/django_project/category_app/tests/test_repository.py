@@ -1,8 +1,8 @@
 import pytest
 
 from core.category.domain.category import Category
-from django_project.category_app.models import Category as CategoryModel
-from django_project.category_app.repository import DjangoCategoryRepository
+from src.django_project.category_app.models import Category as CategoryModel
+from src.django_project.category_app.repository import DjangoCategoryRepository
 
 
 @pytest.mark.django_db
