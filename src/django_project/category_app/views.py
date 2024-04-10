@@ -1,4 +1,3 @@
-from uuid import UUID
 
 from rest_framework import status, viewsets
 from rest_framework.request import Request
@@ -27,7 +26,7 @@ from src.core.category.application.use_cases.update_category import (
     UpdateCategory,
     UpdateCategoryRequest,
 )
-from src.django_project.category_app.repository import DjangoCategoryRepository
+from src.django_project.category_app.repository import DjangoORMCategoryRepository
 from src.django_project.category_app.serializers import (
     CreateCategoryRequestSerializer,
     CreateCategoryResponseSerializer,
@@ -42,7 +41,7 @@ from src.django_project.category_app.serializers import (
 class CategoryViewSet(viewsets.ViewSet):
     def list(self, request: Request) -> Response:
         input = ListCategoryRequest()
-        use_case = ListCategory(repository=DjangoCategoryRepository())
+        use_case = ListCategory(repository=DjangoORMCategoryRepository())
         output = use_case.execute(input)
 
         serializer = ListCategoryResponseSerializer(instance=output)
@@ -54,7 +53,7 @@ class CategoryViewSet(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
         category_pk = serializer.validated_data["id"]
 
-        use_case = GetCategory(repository=DjangoCategoryRepository())
+        use_case = GetCategory(repository=DjangoORMCategoryRepository())
 
         input = GetCategoryRequest(id=category_pk)
 
@@ -75,7 +74,7 @@ class CategoryViewSet(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
 
         input = CreateCategoryRequest(**serializer.validated_data)
-        use_case = CreateCategory(repository=DjangoCategoryRepository())
+        use_case = CreateCategory(repository=DjangoORMCategoryRepository())
         output = use_case.execute(input)
 
         return Response(
@@ -88,7 +87,7 @@ class CategoryViewSet(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
 
         input = UpdateCategoryRequest(**serializer.validated_data)
-        use_case = UpdateCategory(repository=DjangoCategoryRepository())
+        use_case = UpdateCategory(repository=DjangoORMCategoryRepository())
         try:
             output = use_case.execute(input)
         except CategoryDoesNotExistsException:
@@ -103,7 +102,7 @@ class CategoryViewSet(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
 
         input = UpdateCategoryRequest(**serializer.validated_data)
-        use_case = UpdateCategory(repository=DjangoCategoryRepository())
+        use_case = UpdateCategory(repository=DjangoORMCategoryRepository())
         try:
             output = use_case.execute(input)
         except CategoryDoesNotExistsException:
@@ -115,7 +114,7 @@ class CategoryViewSet(viewsets.ViewSet):
         serializer = DeleteCategoryRequestSerializer(data={"id": pk})
         serializer.is_valid(raise_exception=True)
 
-        use_case = DeleteCategory(repository=DjangoCategoryRepository())
+        use_case = DeleteCategory(repository=DjangoORMCategoryRepository())
 
         try:
             use_case.execute(DeleteCategoryRequest(**serializer.validated_data))

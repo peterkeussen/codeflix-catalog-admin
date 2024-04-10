@@ -6,7 +6,7 @@ from src.core.category.domain.category_repository import CategoryRepository
 from src.django_project.category_app.models import Category as CategoryModel
 
 
-class DjangoCategoryRepository(CategoryRepository):
+class DjangoORMCategoryRepository(CategoryRepository):
     def __init__(self, category_model: CategoryModel = CategoryModel) -> None:
         self.category_model = category_model
 

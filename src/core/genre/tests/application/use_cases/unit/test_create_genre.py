@@ -61,7 +61,7 @@ class TestCreateGenre:
 
         input = CreateGenre.Input(
             name="Action",
-            category_ids={category_id},
+            categories={category_id},
         )
 
         with pytest.raises(RelatedCategoriesNotFound) as exc_info:
@@ -82,7 +82,7 @@ class TestCreateGenre:
 
         input = CreateGenre.Input(
             name="",
-            category_ids={movie_category.id},
+            categories={movie_category.id},
         )
 
         with pytest.raises(InvalidGenreData, match="Name cannot be empty") as exc_info:
@@ -103,7 +103,7 @@ class TestCreateGenre:
 
         input = CreateGenre.Input(
             name="Action",
-            category_ids={movie_category.id, documentary_category.id},
+            categories={movie_category.id, documentary_category.id},
         )
 
         output = use_case.execute(input)
@@ -128,7 +128,7 @@ class TestCreateGenre:
 
         input = CreateGenre.Input(
             name="Action",
-            category_ids=set(),
+            categories=set(),
         )
 
         use_case = CreateGenre(mock_genre_repository, mock_empyt_category_repository)
@@ -146,3 +146,37 @@ class TestCreateGenre:
                 categories=set(),
             )
         )
+
+    def test_create_genre_with_invalid_categories(
+        self,
+        mock_empyt_category_repository,
+        mock_genre_repository,
+    ):
+
+        input = CreateGenre.Input(
+            name="Action",
+            categories={uuid.uuid4()},
+        )
+
+        use_case = CreateGenre(mock_genre_repository, mock_empyt_category_repository)
+
+        with pytest.raises(RelatedCategoriesNotFound):
+            use_case.execute(input)
+            
+            
+    def test_create_genre_with_invalid_data_then_raise_invalid_genre_exception(
+        self,
+        mock_category_repository_with_categories,
+        mock_genre_repository,
+        movie_category,
+        documentary_category
+    ):
+        input = CreateGenre.Input(
+            name="",
+            categories={movie_category.id, documentary_category.id},
+        )
+
+        use_case = CreateGenre(mock_genre_repository, mock_category_repository_with_categories)
+
+        with pytest.raises(InvalidGenreData, match="Name cannot be empty"):
+            use_case.execute(input)

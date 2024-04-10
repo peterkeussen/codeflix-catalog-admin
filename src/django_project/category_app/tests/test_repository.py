@@ -2,7 +2,7 @@ import pytest
 
 from core.category.domain.category import Category
 from src.django_project.category_app.models import Category as CategoryModel
-from src.django_project.category_app.repository import DjangoCategoryRepository
+from src.django_project.category_app.repository import DjangoORMCategoryRepository
 
 
 @pytest.mark.django_db
@@ -12,7 +12,7 @@ class TestSampleRepository:
             name="Movie",
             description="Movie description",
         )
-        category_repository = DjangoCategoryRepository()
+        category_repository = DjangoORMCategoryRepository()
         assert CategoryModel.objects.count() == 0
         category_repository.save(category)
         assert CategoryModel.objects.count() == 1

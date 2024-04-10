@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 from src.core.category.domain.category import Category
-from src.django_project.category_app.repository import DjangoCategoryRepository
+from src.django_project.category_app.repository import DjangoORMCategoryRepository
 
 
 @pytest.fixture
@@ -26,8 +26,8 @@ def category_serie() -> Category:
 
 
 @pytest.fixture
-def category_repository() -> DjangoCategoryRepository:
-    return DjangoCategoryRepository()
+def category_repository() -> DjangoORMCategoryRepository:
+    return DjangoORMCategoryRepository()
 
 
 @pytest.mark.django_db
@@ -36,7 +36,7 @@ class TestListAPI:
         self,
         category_movie: Category,
         category_serie: Category,
-        category_repository: DjangoCategoryRepository,
+        category_repository: DjangoORMCategoryRepository,
     ):
 
         category_repository.save(category_movie)
@@ -76,7 +76,7 @@ class TestRetrieveAPI:
         self,
         category_movie: Category,
         category_serie: Category,
-        category_repository: DjangoCategoryRepository,
+        category_repository: DjangoORMCategoryRepository,
     ):
         category_repository.save(category_movie)
         category_repository.save(category_serie)
@@ -122,7 +122,7 @@ class TestCreateAPI:
 
     def test_when_playload_is_valid_then_create_category_and_then_return_201(
         self,
-        category_repository: DjangoCategoryRepository,
+        category_repository: DjangoORMCategoryRepository,
     ):
         url = "/api/categories/"
         response = APIClient().post(
@@ -181,7 +181,7 @@ class TestUpdateAPI:
     def test_when_payload_is_valid_then_update_category_and_then_return_204(
         self,
         category_movie: Category,
-        category_repository: DjangoCategoryRepository,
+        category_repository: DjangoORMCategoryRepository,
     ):
         category_repository.save(category_movie)
 
@@ -203,7 +203,7 @@ class TestUpdateAPI:
     def test_partial_update_category_and_return_204(
         self,
         category_movie: Category,
-        category_repository: DjangoCategoryRepository,
+        category_repository: DjangoORMCategoryRepository,
     ):
         category_repository.save(category_movie)
 
@@ -250,7 +250,7 @@ class TestDeleteAPI:
         assert response.status_code == status.HTTP_404_NOT_FOUND
 
     def test_when_category_exist_then_return_204(
-        self, category_movie: Category, category_repository: DjangoCategoryRepository
+        self, category_movie: Category, category_repository: DjangoORMCategoryRepository
     ):
         category_repository.save(category_movie)
 
