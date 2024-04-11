@@ -150,3 +150,12 @@ class TestDeleteAPI:
         response = APIClient().delete(f"/api/genres/invalid_pk/")
         
         assert response.status_code == 400
+        
+    def test_delete_genre_from_repository(self, genre_romance, category_movie, genre_repository):
+        genre_repository.save(genre_romance)
+        
+        response = APIClient().delete(f"/api/genres/{genre_romance.id}/")
+        
+        assert response.status_code == 204
+        assert genre_repository.get_by_id(genre_romance.id) is None
+        assert genre_repository.list() == []

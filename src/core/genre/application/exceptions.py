@@ -8,3 +8,6 @@ class InvalidGenreData(Exception):
 
 class GenreDoesNotExistsException(Exception):
     pass
+
+class GenreNotFoundException(Exception):
+    pass

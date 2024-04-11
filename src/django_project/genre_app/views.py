@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
-from core.genre.application.exceptions import GenreDoesNotExistsException, InvalidGenreData, RelatedCategoriesNotFound
+from core.genre.application.exceptions import GenreDoesNotExistsException, GenreNotFoundException, InvalidGenreData, RelatedCategoriesNotFound
 from core.genre.application.use_cases.create_genre import CreateGenre
 from core.genre.application.use_cases.delete_genre import DeleteGenre
 from core.genre.tests.application import use_cases
@@ -59,7 +59,7 @@ class GenreViewSet(viewsets.ViewSet):
 
         try:
             use_case.execute(input)
-        except GenreDoesNotExistsException:
+        except Exception:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         return Response(status=status.HTTP_204_NO_CONTENT)
