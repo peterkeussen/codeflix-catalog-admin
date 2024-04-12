@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid4)
+    id = models.UUIDField(primary_key=True, default=uuid4, unique=True)
     name = models.CharField(max_length=255)
     description = models.TextField()
     is_active = models.BooleanField(default=True)

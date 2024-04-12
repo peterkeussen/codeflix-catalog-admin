@@ -17,7 +17,7 @@ class UpdateGenre:
     class Input:
         id: UUID
         name: str
-        category_ids: set[UUID] = field(default_factory=set)
+        categories: set[UUID] = field(default_factory=set)
         is_active: bool = True
 
     @dataclass
@@ -32,13 +32,13 @@ class UpdateGenre:
         try:
             if input.name is not None:
                 genre.change_name(input.name)
-            if input.category_ids is not None:
-                for category_id in input.category_ids:
+            if input.categories is not None:
+                for category_id in input.categories:
                     if not self.category_repository.get_by_id(category_id):
                         raise RelatedCategoriesNotFound(
                             f"Related category not found: {category_id}"
                         )
-                genre.categories = input.category_ids
+                genre.categories = input.categories
             if input.is_active is True:
                 genre.activate()
             else:

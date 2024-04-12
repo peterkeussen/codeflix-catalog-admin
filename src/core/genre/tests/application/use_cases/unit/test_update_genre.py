@@ -41,7 +41,7 @@ class TestUpdateGenre:
             id=genre.id,
             name="Action",
             is_active=False,
-            category_ids={movie.id},
+            categories={movie.id},
         )
 
         use_case.execute(input)
@@ -60,7 +60,7 @@ class TestUpdateGenre:
             id=uuid.uuid4(),
             name="Action",
             is_active=False,
-            category_ids=set(),
+            categories=set(),
         )
 
         with pytest.raises(GenreDoesNotExistsException):
@@ -76,7 +76,9 @@ class TestUpdateGenre:
         mock_genre_repository.get_by_id.return_value = genre
         use_case = UpdateGenre(mock_genre_repository, mock_category_repository)
 
-        input = UpdateGenre.Input(id=genre.id, name="")
+        input = UpdateGenre.Input(
+            id=genre.id, name="", is_active=True, categories=set()
+        )
 
         with pytest.raises(InvalidGenreData):
             use_case.execute(input)
@@ -92,7 +94,7 @@ class TestUpdateGenre:
         mock_category_repository.get_by_id.return_value = None
         use_case = UpdateGenre(mock_genre_repository, mock_category_repository)
 
-        input = UpdateGenre.Input(id=genre.id, name="Action", category_ids={uuid.uuid4()})  # type: ignore
+        input = UpdateGenre.Input(id=genre.id, name="Action", is_active=True, categories={uuid.uuid4()})  # type: ignore
 
         with pytest.raises(RelatedCategoriesNotFound):
             use_case.execute(input)

@@ -24,10 +24,10 @@ class CreateGenre:
         id: UUID
 
     def execute(self, input_data: Input) -> Output:
-        category_ids = {category.id for category in self.category_repository.list()}
-        if not input_data.categories.issubset(category_ids):
+        categories = {category.id for category in self.category_repository.list()}
+        if not input_data.categories.issubset(categories):
             raise RelatedCategoriesNotFound(
-                f"Related categories not found: {input_data.categories - category_ids}"
+                f"Related categories not found: {input_data.categories - categories}"
             )
 
         try:

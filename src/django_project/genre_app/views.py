@@ -1,18 +1,30 @@
 from uuid import UUID
-from rest_framework import viewsets
+
+from rest_framework import status, viewsets
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework import status
-from core.genre.application.exceptions import GenreDoesNotExistsException, GenreNotFoundException, InvalidGenreData, RelatedCategoriesNotFound
-from core.genre.application.use_cases.create_genre import CreateGenre
-from core.genre.application.use_cases.delete_genre import DeleteGenre
-from core.genre.tests.application import use_cases
-from django_project.genre_app.repository import DjangoORMGenreRepository
-from django_project.category_app.repository import DjangoORMCategoryRepository
-from django_project.genre_app.serializers import CreateGenreInputSerializer, CreateGenreOutputSerializer, DeleteGenreInputSerializer, ListGenreResponseSerializer
-from src.core.genre.application.use_cases.list_genre import (
-    ListGenre,
+
+from src.core.genre.application.exceptions import (
+    GenreDoesNotExistsException,
+    GenreNotFoundException,
+    InvalidGenreData,
+    RelatedCategoriesNotFound,
 )
+from src.core.genre.application.use_cases.create_genre import CreateGenre
+from src.core.genre.application.use_cases.delete_genre import DeleteGenre
+from src.core.genre.application.use_cases.list_genre import ListGenre
+from src.core.genre.application.use_cases.update_genre import UpdateGenre
+from src.core.genre.tests.application import use_cases
+from src.django_project.category_app.repository import DjangoORMCategoryRepository
+from src.django_project.genre_app.repository import DjangoORMGenreRepository
+from src.django_project.genre_app.serializers import (
+    CreateGenreInputSerializer,
+    CreateGenreOutputSerializer,
+    DeleteGenreInputSerializer,
+    ListGenreResponseSerializer,
+    UpdateGenreInputSerializer,
+)
+
 
 class GenreViewSet(viewsets.ViewSet):
     def list(self, request: Request) -> Response:
@@ -27,8 +39,8 @@ class GenreViewSet(viewsets.ViewSet):
 
         input = CreateGenre.Input(**serializer.validated_data)
         use_case = CreateGenre(
-            repository=DjangoORMGenreRepository(), 
-            category_repository=DjangoORMCategoryRepository()
+            repository=DjangoORMGenreRepository(),
+            category_repository=DjangoORMCategoryRepository(),
         )
         try:
             output = use_case.execute(input)
@@ -40,12 +52,28 @@ class GenreViewSet(viewsets.ViewSet):
             data=CreateGenreOutputSerializer(instance=output).data,
         )
 
-
     def retrieve(self):
         pass
 
-    def update(self):
-        pass
+    def update(self, request: Request, pk: UUID = None) -> Response:
+        serializer = UpdateGenreInputSerializer(data={**request.data, "id": pk})
+        serializer.is_valid(raise_exception=True)
+
+        input = UpdateGenre.Input(**serializer.validated_data)
+        use_case = UpdateGenre(
+            repository=DjangoORMGenreRepository(),
+            category_repository=DjangoORMCategoryRepository(),
+        )
+        try:
+            use_case.execute(input)
+        except GenreDoesNotExistsException:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        except (InvalidGenreData, RelatedCategoriesNotFound) as error:
+            return Response(
+                data={"error": str(error)}, status=status.HTTP_400_BAD_REQUEST
+            )
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
     def partial_update(self):
         pass

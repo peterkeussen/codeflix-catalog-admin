@@ -27,7 +27,7 @@ class TestUpdateGenre:
         use_case = UpdateGenre(repository, category_repository)
 
         input = UpdateGenre.Input(
-            id=uuid.uuid4(), name="Action", is_active=True, category_ids=set()
+            id=uuid.uuid4(), name="Action", is_active=True, categories=set()
         )
 
         with pytest.raises(GenreDoesNotExistsException):
@@ -41,7 +41,9 @@ class TestUpdateGenre:
         repository = InMemoryGenreRepository([genre])
         use_case = UpdateGenre(repository, InMemoryCategoryRepository())  # type: ignore
 
-        input = UpdateGenre.Input(id=genre.id, name="")
+        input = UpdateGenre.Input(
+            id=genre.id, name="", is_active=True, categories=set()
+        )
 
         with pytest.raises(InvalidGenreData):
             use_case.execute(input)
@@ -55,7 +57,7 @@ class TestUpdateGenre:
         category_repository = InMemoryCategoryRepository([Category(name="Action")])
         use_case = UpdateGenre(repository, category_repository)
 
-        input = UpdateGenre.Input(id=genre.id, name="Action", category_ids={uuid.uuid4()})  # type: ignore
+        input = UpdateGenre.Input(id=genre.id, name="Action", is_active=True, categories={uuid.uuid4()})  # type: ignore
 
         with pytest.raises(RelatedCategoriesNotFound):
             use_case.execute(input)
@@ -77,7 +79,7 @@ class TestUpdateGenre:
         )
         use_case = UpdateGenre(repository, category_repository)
 
-        input = UpdateGenre.Input(id=genre.id, name="Action", category_ids={category_repository.get_by_name("Action").id, category_repository.get_by_name("Drama").id, category_repository.get_by_name("Documentary").id})  # type: ignore
+        input = UpdateGenre.Input(id=genre.id, name="Action", is_active=False, categories={category_repository.get_by_name("Action").id, category_repository.get_by_name("Drama").id, category_repository.get_by_name("Documentary").id})  # type: ignore
 
         use_case.execute(input)
 
@@ -100,7 +102,7 @@ class TestUpdateGenre:
         )
         use_case = UpdateGenre(repository, category_repository)
 
-        input = UpdateGenre.Input(id=genre.id, name="Romance", is_active=False, category_ids={category_repository.get_by_name("Documentary").id, category_repository.get_by_name("Drama").id})  # type: ignore
+        input = UpdateGenre.Input(id=genre.id, name="Romance", is_active=False, categories={category_repository.get_by_name("Documentary").id, category_repository.get_by_name("Drama").id})  # type: ignore
 
         use_case.execute(input)
 
