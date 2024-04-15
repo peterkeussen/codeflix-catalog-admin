@@ -1,4 +1,3 @@
-from unicodedata import category
 from uuid import UUID
 
 from src.core.category.domain.category import Category

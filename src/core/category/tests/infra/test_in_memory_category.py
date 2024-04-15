@@ -1,7 +1,5 @@
 import uuid
 
-import pytest
-
 from src.core.category.domain.category import Category
 from src.core.category.infra.in_memory_category_repositry import (
     InMemoryCategoryRepository,
