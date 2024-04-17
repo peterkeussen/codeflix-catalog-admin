@@ -5,8 +5,8 @@ from unittest.mock import create_autospec
 
 import pytest
 
-from src.core.genre.application.exceptions import GenreDoesNotExistsException
 from src.core.genre.application.use_cases.delete_genre import DeleteGenre
+from src.core.genre.application.use_cases.exceptions import GenreDoesNotExistsException
 from src.core.genre.domain.genre import Genre
 from src.core.genre.domain.genre_repository import GenreRepository
 

@@ -5,11 +5,11 @@ import pytest
 
 from src.core.category.domain.category import Category
 from src.core.category.domain.category_repository import CategoryRepository
-from src.core.genre.application.exceptions import (
+from src.core.genre.application.use_cases.create_genre import CreateGenre
+from src.core.genre.application.use_cases.exceptions import (
     InvalidGenreData,
     RelatedCategoriesNotFound,
 )
-from src.core.genre.application.use_cases.create_genre import CreateGenre
 from src.core.genre.domain.genre import Genre
 from src.core.genre.domain.genre_repository import GenreRepository
 
@@ -162,22 +162,22 @@ class TestCreateGenre:
 
         with pytest.raises(RelatedCategoriesNotFound):
             use_case.execute(input)
-            
-            
+
     def test_create_genre_with_invalid_data_then_raise_invalid_genre_exception(
         self,
         mock_category_repository_with_categories,
         mock_genre_repository,
         movie_category,
-        documentary_category
+        documentary_category,
     ):
         input = CreateGenre.Input(
             name="",
             categories={movie_category.id, documentary_category.id},
         )
 
-        use_case = CreateGenre(mock_genre_repository, mock_category_repository_with_categories)
+        use_case = CreateGenre(
+            mock_genre_repository, mock_category_repository_with_categories
+        )
 
         with pytest.raises(InvalidGenreData, match="Name cannot be empty"):
             use_case.execute(input)
-            

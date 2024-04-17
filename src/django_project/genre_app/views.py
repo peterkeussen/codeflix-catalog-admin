@@ -4,17 +4,15 @@ from rest_framework import status, viewsets
 from rest_framework.request import Request
 from rest_framework.response import Response
 
-from src.core.genre.application.exceptions import (
+from src.core.genre.application.use_cases.create_genre import CreateGenre
+from src.core.genre.application.use_cases.delete_genre import DeleteGenre
+from src.core.genre.application.use_cases.exceptions import (
     GenreDoesNotExistsException,
-    GenreNotFoundException,
     InvalidGenreData,
     RelatedCategoriesNotFound,
 )
-from src.core.genre.application.use_cases.create_genre import CreateGenre
-from src.core.genre.application.use_cases.delete_genre import DeleteGenre
 from src.core.genre.application.use_cases.list_genre import ListGenre
 from src.core.genre.application.use_cases.update_genre import UpdateGenre
-from src.core.genre.tests.application import use_cases
 from src.django_project.category_app.repository import DjangoORMCategoryRepository
 from src.django_project.genre_app.repository import DjangoORMGenreRepository
 from src.django_project.genre_app.serializers import (

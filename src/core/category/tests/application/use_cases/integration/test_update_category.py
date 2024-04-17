@@ -25,10 +25,10 @@ class TestUpdateCategory:
             is_active=False,
         )
 
-        response = use_case.execute(request)
+        use_case.execute(request)
 
         updated_category = repository.get_by_id(category.id)
-        assert updated_category.id == category.id
-        assert updated_category.name == "Movie updated"
-        assert updated_category.description == "Some description updated"
-        assert updated_category.is_active is False
+        assert updated_category.id == category.id  # type: ignore
+        assert updated_category.name == "Movie updated"  # type: ignore
+        assert updated_category.description == "Some description updated"  # type: ignore
+        assert updated_category.is_active is False  # type: ignore

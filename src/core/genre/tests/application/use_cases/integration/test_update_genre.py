@@ -6,7 +6,7 @@ from src.core.category.domain.category import Category
 from src.core.category.infra.in_memory_category_repositry import (
     InMemoryCategoryRepository,
 )
-from src.core.genre.application.exceptions import (
+from src.core.genre.application.use_cases.exceptions import (
     GenreDoesNotExistsException,
     InvalidGenreData,
     RelatedCategoriesNotFound,

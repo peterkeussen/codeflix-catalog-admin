@@ -8,12 +8,10 @@ from src.core.category.domain.category_repository import CategoryRepository
 from src.core.category.infra.in_memory_category_repositry import (
     InMemoryCategoryRepository,
 )
-from src.core.category.tests.infra.in_memory_category_repositry import (
-    InMemoryGenreRepository,
-)
-from src.core.genre.application.exceptions import RelatedCategoriesNotFound
 from src.core.genre.application.use_cases.create_genre import CreateGenre
+from src.core.genre.application.use_cases.exceptions import RelatedCategoriesNotFound
 from src.core.genre.domain.genre_repository import GenreRepository
+from src.core.genre.infra.in_memory_genre_repositry import InMemoryGenreRepository
 
 
 @pytest.fixture

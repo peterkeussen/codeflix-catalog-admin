@@ -19,13 +19,13 @@ class CastMember:
 
     def validate(self):
         if len(self.name) > 255:
-            raise ValueError("name cannot be longer than 255")
+            raise ValueError("Name cannot be longer than 255")
 
         if not self.name:
-            raise ValueError("name cannot be empty")
+            raise ValueError("Name cannot be empty")
 
         if not self.type in CastMemberType.__members__:
-            raise ValueError("type must be a valid CastMemberType: actor or director")
+            raise ValueError("Type must be a valid CastMemberType: actor or director")
 
     def __str__(self):
         return f"{self.name} - {self.type}"

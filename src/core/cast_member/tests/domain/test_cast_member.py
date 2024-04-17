@@ -14,24 +14,24 @@ class TestCastMember:
             CastMember()
 
     def test_name_cannot_be_longer_than_255_characters(self):
-        with pytest.raises(ValueError, match="name cannot be longer than 255"):
+        with pytest.raises(ValueError, match="Name cannot be longer than 255"):
             CastMember(name="a" * 257, type=CastMemberType.ACTOR)
 
     def test_name_cannot_be_empty(self):
-        with pytest.raises(ValueError, match="name cannot be empty"):
+        with pytest.raises(ValueError, match="Name cannot be empty"):
             CastMember(name="", type=CastMemberType.ACTOR)
 
     def test_type_cannot_be_empty(self):
         with pytest.raises(
             ValueError,
-            match="type must be a valid CastMemberType: actor or director",
+            match="Type must be a valid CastMemberType: actor or director",
         ):
             CastMember(name="Peter", type="")
 
     def test_type_cannot_be_invalid(self):
         with pytest.raises(
             ValueError,
-            match="type must be a valid CastMemberType: actor or director",
+            match="Type must be a valid CastMemberType: actor or director",
         ):
             CastMember(name="Peter", type="invalid")
 
