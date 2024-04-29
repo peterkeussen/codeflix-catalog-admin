@@ -1,33 +1,34 @@
 from dataclasses import dataclass
-from uuid import UUID, uuid4
+from uuid import UUID
 
 from src.core.cast_member.application.use_case.exceptions import InvalidCastMemberData
 from src.core.cast_member.domain.cast_member import CastMember, CastMemberType
 from src.core.cast_member.domain.cast_member_repository import CastMemberRepository
 
 
+@dataclass
+class CreateCastMemberRequest:
+    name: str
+    type: CastMemberType
+
+
+@dataclass
+class CreateCastMemberResponse:
+    id: UUID
+
+
 class CreateCastMember:
-    def __init__(self, repository: CastMemberRepository) -> None:
+    def __init__(self, repository: CastMemberRepository):
         self.repository = repository
 
-    @dataclass
-    class Input:
-        name: str
-        type: CastMemberType
-
-    @dataclass
-    class Output:
-        id: UUID
-
-    def execute(self, input: Input) -> Output:
+    def execute(self, request: CreateCastMemberRequest) -> CreateCastMemberResponse:
         try:
             cast_member = CastMember(
-                id=uuid4(),
-                name=input.name,
-                type=input.type,
+                name=request.name,
+                type=request.type,
             )
-        except ValueError as error:
-            raise InvalidCastMemberData(error) from error
+        except ValueError as err:
+            raise InvalidCastMemberData(err)
 
-        self.repository.save(cast_member=cast_member)
-        return CreateCastMember.Output(id=cast_member.id)
+        self.repository.save(cast_member)
+        return CreateCastMemberResponse(id=cast_member.id)

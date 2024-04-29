@@ -11,7 +11,11 @@ from src.core.genre.application.use_cases.exceptions import (
     InvalidGenreData,
     RelatedCategoriesNotFound,
 )
-from src.core.genre.application.use_cases.list_genre import ListGenre
+from src.core.genre.application.use_cases.list_genre import (
+    ListGenre,
+    ListGenreInput,
+    ListGenreOutput,
+)
 from src.core.genre.application.use_cases.update_genre import UpdateGenre
 from src.django_project.category_app.repository import DjangoORMCategoryRepository
 from src.django_project.genre_app.repository import DjangoORMGenreRepository
@@ -26,8 +30,18 @@ from src.django_project.genre_app.serializers import (
 
 class GenreViewSet(viewsets.ViewSet):
     def list(self, request: Request) -> Response:
+        order_by = request.query_params.get("order_by", "name")
+        ordering = request.query_params.get("ordering", "asc")
+        current_page = request.query_params.get("current_page", 1)
+        page_size = request.query_params.get("page_size", 10)
+        input = ListGenreInput(
+            order_by=order_by,
+            ordering=ordering,
+            current_page=int(current_page),
+            page_size=int(page_size),
+        )
         use_case = ListGenre(repository=DjangoORMGenreRepository())
-        output: ListGenre.Output = use_case.execute(ListGenre.Imput())
+        output: ListGenreOutput = use_case.execute(input)
         response_serializer = ListGenreResponseSerializer(instance=output)
         return Response(status=status.HTTP_200_OK, data=response_serializer.data)
 

@@ -2,7 +2,13 @@ from src.core.category.domain.category import Category
 from src.core.category.infra.in_memory_category_repositry import (
     InMemoryCategoryRepository,
 )
-from src.core.genre.application.use_cases.list_genre import GenreOutput, ListGenre
+from src.core.genre.application.use_cases.list_genre import (
+    GenreOutput,
+    ListGenre,
+    ListGenreInput,
+    ListGenreOutputMeta,
+    ListGenreResponse,
+)
 from src.core.genre.domain.genre import Genre
 from src.core.genre.infra.in_memory_genre_repositry import InMemoryGenreRepository
 
@@ -24,11 +30,11 @@ class TestListGenre:
         genre_repository.save(genre)
 
         use_case = ListGenre(genre_repository)
-
-        output = use_case.execute(input=ListGenre.Imput())
+        input = ListGenreInput()
+        output = use_case.execute(input)
 
         assert len(output.data) == 1
-        assert output == ListGenre.Output(
+        assert output == ListGenreResponse(
             data=[
                 GenreOutput(
                     id=genre.id,
@@ -36,7 +42,8 @@ class TestListGenre:
                     is_active=True,
                     categories={movie.id, documentary.id},
                 )
-            ]
+            ],
+            meta=ListGenreOutputMeta(current_page=1, page_size=10, total=1),
         )
         assert output.data[0].categories == {movie.id, documentary.id}
 
@@ -44,8 +51,10 @@ class TestListGenre:
         genre_repository = InMemoryGenreRepository()
 
         use_case = ListGenre(genre_repository)
-
-        output = use_case.execute(input=ListGenre.Imput())
+        input = ListGenreInput()
+        output = use_case.execute(input)
 
         assert len(output.data) == 0
-        assert output == ListGenre.Output(data=[])
+        assert output == ListGenreResponse(
+            data=[], meta=ListGenreOutputMeta(current_page=1, page_size=10, total=0)
+        )

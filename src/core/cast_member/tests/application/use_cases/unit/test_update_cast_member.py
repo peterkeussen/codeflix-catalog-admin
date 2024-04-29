@@ -6,6 +6,7 @@ import pytest
 from src.core.cast_member.application.use_case.exceptions import CastmemberNotFound
 from src.core.cast_member.application.use_case.update_cast_member import (
     UpdateCastMember,
+    UpdateCastMemberResquest,
 )
 from src.core.cast_member.domain.cast_member import CastMember, CastMemberType
 from src.core.cast_member.domain.cast_member_repository import CastMemberRepository
@@ -47,12 +48,10 @@ class TestUpdateCastMember:
     def test_update_cast_member(self, mock_repository, actor):
         mock_repository.get_by_id.return_value = actor
         use_case = UpdateCastMember(mock_repository)
-
-        cast_member = use_case.execute(
-            input=UpdateCastMember.Input(
-                id=actor.id, name="Peter Parker", type=actor.type
-            )
+        input = UpdateCastMemberResquest(
+            id=actor.id, name="Peter Parker", type=actor.type
         )
+        cast_member = use_case.execute(input)
 
         assert cast_member.id == actor.id
         assert cast_member.name == "Peter Parker"
@@ -63,22 +62,18 @@ class TestUpdateCastMember:
     ):
         mock_empyt_repository.list.return_value = []
         use_case = UpdateCastMember(mock_empyt_repository)
-
-        cast_member = use_case.execute(
-            input=UpdateCastMember.Input(
-                id=actor.id, name="Peter Parker", type=actor.type
-            )
+        input = UpdateCastMemberResquest(
+            id=actor.id, name="Peter Parker", type=actor.type
         )
+        cast_member = use_case.execute(input)
 
         assert len(cast_member) == 0
 
     def test_update_cast_member_with_invalid_id(self, mock_repository):
         mock_repository.get_by_id.return_value = None
         use_case = UpdateCastMember(mock_repository)
-
+        input = UpdateCastMemberResquest(
+            id=uuid4(), name="Peter Parker", type=CastMemberType.ACTOR
+        )
         with pytest.raises(CastmemberNotFound):
-            use_case.execute(
-                input=UpdateCastMember.Input(
-                    id=uuid4(), name="Peter Parker", type=CastMemberType.ACTOR
-                )
-            )
+            use_case.execute(input)

@@ -4,6 +4,7 @@ import pytest
 
 from src.core.cast_member.application.use_case.create_cast_member import (
     CreateCastMember,
+    CreateCastMemberRequest,
 )
 from src.core.cast_member.domain.cast_member import CastMember, CastMemberType
 from src.core.cast_member.domain.cast_member_repository import CastMemberRepository
@@ -49,7 +50,7 @@ def mock_repository_with_cast_members(self, actor, director):
 class TestCreateCastMember:
     def test_create_cast_member(self, mock_repository):
         use_case = CreateCastMember(mock_repository)
-        input_param = CreateCastMember.Input(
+        input_param = CreateCastMemberRequest(
             name="Peter",
             type=CastMemberType.ACTOR,
         )
@@ -61,7 +62,7 @@ class TestCreateCastMember:
 
         with pytest.raises(Exception) as exc:
             use_case.execute(
-                CreateCastMember.Input(
+                CreateCastMemberRequest(
                     name="",
                     type=CastMemberType.ACTOR,
                 )
@@ -74,7 +75,7 @@ class TestCreateCastMember:
 
         with pytest.raises(Exception) as exc:
             use_case.execute(
-                CreateCastMember.Input(
+                CreateCastMemberRequest(
                     name="Peter",
                     type="",
                 )

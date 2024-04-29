@@ -5,6 +5,9 @@ import pytest
 from src.core.cast_member.application.use_case.list_cast_member import (
     CastMemberOutput,
     ListCastMember,
+    ListCastMemberOutputMeta,
+    ListCastMemberRequest,
+    ListCastMemberResponse,
 )
 from src.core.cast_member.domain.cast_member import CastMember, CastMemberType
 from src.core.cast_member.domain.cast_member_repository import CastMemberRepository
@@ -44,11 +47,18 @@ class TestListCastMember:
         mock_empyt_repository,
     ):
         use_case = ListCastMember(mock_empyt_repository)
-
-        output = use_case.execute(input=ListCastMember.Input())
+        input = ListCastMemberRequest()
+        output = use_case.execute(input)
 
         assert len(output.data) == 0
-        assert output == ListCastMember.Output(data=[])
+        assert output == ListCastMemberResponse(
+            data=[],
+            meta=ListCastMemberOutputMeta(
+                current_page=1,
+                page_size=10,
+                total=0,
+            ),
+        )
 
     def test_list_cast_member_with_repository(
         self,
@@ -57,15 +67,20 @@ class TestListCastMember:
         director,
     ):
         use_case = ListCastMember(mock_repository_with_cast_members)
-
-        output = use_case.execute(input=ListCastMember.Input())
+        input = ListCastMemberRequest()
+        output = use_case.execute(input)
 
         assert len(output.data) == 2
-        assert output == ListCastMember.Output(
+        assert output == ListCastMemberResponse(
             data=[
-                CastMemberOutput(id=actor.id, name=actor.name, type=actor.type),
                 CastMemberOutput(
                     id=director.id, name=director.name, type=director.type
                 ),
-            ]
+                CastMemberOutput(id=actor.id, name=actor.name, type=actor.type),
+            ],
+            meta=ListCastMemberOutputMeta(
+                current_page=1,
+                page_size=10,
+                total=2,
+            ),
         )

@@ -49,3 +49,22 @@ class TestDeleteCategory:
 
         assert len(repository.categories) == 3
         assert repository.categories[0] == category_serie
+
+
+class TestListCategory:
+    def test_can_list(self):
+        category_film = Category(name="Movie")
+        category_serie = Category(name="Serie")
+        repository = InMemoryCategoryRepository([category_film, category_serie])
+
+        assert repository.list() == [category_film, category_serie]
+        assert len(repository.list()) == 2
+
+
+class TestUpdateCategory:
+    def test_can_update(self):
+        category_film = Category(name="Movie")
+        repository = InMemoryCategoryRepository([category_film])
+        category_film.name = "Movie 2"
+        repository.update(category_film)
+        assert repository.get_by_id(category_film.id).name == "Movie 2"

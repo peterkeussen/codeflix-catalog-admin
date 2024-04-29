@@ -4,6 +4,8 @@ from django.db import models
 
 
 class Category(models.Model):
+    app_label = "category_app"
+
     id = models.UUIDField(primary_key=True, default=uuid4, unique=True)
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -13,7 +15,4 @@ class Category(models.Model):
         db_table = "category"
 
     def __str__(self):
-        return str(self.name)
-
-    def __repr__(self):
         return str(self.name)

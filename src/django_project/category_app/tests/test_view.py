@@ -1,7 +1,6 @@
 import uuid
 
 import pytest
-from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
 
@@ -58,7 +57,100 @@ class TestListAPI:
                     "description": category_serie.description,
                     "is_active": category_movie.is_active,
                 },
-            ]
+            ],
+            "meta": {"current_page": 1, "page_size": 10, "total": 2},
+        }
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data == expected_data
+
+    def test_list_categories_by_name_with_ordering_asc(
+        self,
+        category_movie: Category,
+        category_serie: Category,
+        category_repository: DjangoORMCategoryRepository,
+    ):
+
+        category_repository.save(category_movie)
+        category_repository.save(category_serie)
+
+        response = APIClient().get("/api/categories/?order_by=name&ordering=asc")
+
+        expected_data = {
+            "data": [
+                {
+                    "id": str(category_movie.id),
+                    "name": category_movie.name,
+                    "description": category_movie.description,
+                    "is_active": category_movie.is_active,
+                },
+                {
+                    "id": str(category_serie.id),
+                    "name": category_serie.name,
+                    "description": category_serie.description,
+                    "is_active": category_movie.is_active,
+                },
+            ],
+            "meta": {"current_page": 1, "page_size": 10, "total": 2},
+        }
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data == expected_data
+
+    def test_list_categories_by_name_with_ordering_desc(
+        self,
+        category_movie: Category,
+        category_serie: Category,
+        category_repository: DjangoORMCategoryRepository,
+    ):
+
+        category_repository.save(category_movie)
+        category_repository.save(category_serie)
+
+        response = APIClient().get("/api/categories/?order_by=name&ordering=desc")
+
+        expected_data = {
+            "data": [
+                {
+                    "id": str(category_serie.id),
+                    "name": category_serie.name,
+                    "description": category_serie.description,
+                    "is_active": category_movie.is_active,
+                },
+                {
+                    "id": str(category_movie.id),
+                    "name": category_movie.name,
+                    "description": category_movie.description,
+                    "is_active": category_movie.is_active,
+                },
+            ],
+            "meta": {"current_page": 1, "page_size": 10, "total": 2},
+        }
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data == expected_data
+
+    def test_list_categories_by_name_with_ordering_desc_2_pages(
+        self,
+        category_movie: Category,
+        category_serie: Category,
+        category_repository: DjangoORMCategoryRepository,
+    ):
+
+        category_repository.save(category_movie)
+        category_repository.save(category_serie)
+
+        response = APIClient().get(
+            "/api/categories/?order_by=name&ordering=desc&page_size=1"
+        )
+
+        expected_data = {
+            "data": [
+                {
+                    "id": str(category_serie.id),
+                    "name": category_serie.name,
+                    "description": category_serie.description,
+                    "is_active": category_movie.is_active,
+                },
+            ],
+            "meta": {"current_page": 1, "page_size": 1, "total": 2},
         }
         assert response.status_code == status.HTTP_200_OK
         assert response.data == expected_data

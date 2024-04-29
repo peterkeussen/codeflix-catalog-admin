@@ -5,6 +5,7 @@ from src.core.category.application.use_cases.list_category import (
     ListCategory,
     ListCategoryRequest,
     ListCategoryResponse,
+    ListOutputMeta,
 )
 from src.core.category.domain.category import Category
 from src.core.category.domain.category_repository import CategoryRepository
@@ -23,7 +24,9 @@ class TestListCategory:
         request = ListCategoryRequest()
         response = use_case.execute(request)
 
-        assert response == ListCategoryResponse(data=[])
+        assert response == ListCategoryResponse(
+            data=[], meta=ListOutputMeta(current_page=1, page_size=10, total=0)
+        )
 
     def test_when_categories_in_repository_then_return_a_list(self):
         category_film = Category(
@@ -56,5 +59,6 @@ class TestListCategory:
                     description=category_serie.description,
                     is_active=category_serie.is_active,
                 ),
-            ]
+            ],
+            meta=ListOutputMeta(current_page=1, page_size=10, total=2),
         )

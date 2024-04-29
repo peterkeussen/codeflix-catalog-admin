@@ -5,17 +5,18 @@ from src.core.cast_member.application.use_case.exceptions import CastmemberNotFo
 from src.core.cast_member.domain.cast_member_repository import CastMemberRepository
 
 
+@dataclass
+class DeleteCastMemberRequest:
+    id: UUID
+
+
 class DeleteCastMember:
     def __init__(self, repository: CastMemberRepository) -> None:
         self.repository = repository
 
-    @dataclass
-    class Input:
-        id: UUID
-
-    def execute(self, input: Input) -> None:
-        cast_member = self.repository.get_by_id(input.id)
+    def execute(self, request: DeleteCastMemberRequest) -> None:
+        cast_member = self.repository.get_by_id(request.id)
 
         if not cast_member:
-            raise CastmemberNotFound(f"CastMember id {input.id} not found")
-        self.repository.delete(input.id)
+            raise CastmemberNotFound(f"CastMember id {request.id} not found")
+        self.repository.delete(request.id)

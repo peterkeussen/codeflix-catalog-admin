@@ -4,6 +4,7 @@ import pytest
 
 from src.core.cast_member.application.use_case.delete_cast_member import (
     DeleteCastMember,
+    DeleteCastMemberRequest,
 )
 from src.core.cast_member.application.use_case.exceptions import CastmemberNotFound
 from src.core.cast_member.domain.cast_member import CastMember, CastMemberType
@@ -18,7 +19,7 @@ class TestDeleteCastMember:
 
         repository = InMemoryCastMemberRepository([cast_member])
         use_case = DeleteCastMember(repository)
-        input_cast = DeleteCastMember.Input(id=cast_member.id)
+        input_cast = DeleteCastMemberRequest(id=cast_member.id)
 
         assert repository.get_by_id(cast_member.id) is not None
 
@@ -30,7 +31,7 @@ class TestDeleteCastMember:
     def test_delete_cast_member_with_invalid_id(self):
         repository = InMemoryCastMemberRepository()
         use_case = DeleteCastMember(repository)
-        input_cast = DeleteCastMember.Input(id=uuid4())
+        input_cast = DeleteCastMemberRequest(id=uuid4())
 
         with pytest.raises(CastmemberNotFound):
             use_case.execute(input_cast)

@@ -2,6 +2,7 @@ import pytest
 
 from src.core.cast_member.application.use_case.create_cast_member import (
     CreateCastMember,
+    CreateCastMemberRequest,
 )
 from src.core.cast_member.application.use_case.exceptions import InvalidCastMemberData
 from src.core.cast_member.domain.cast_member import CastMember, CastMemberType
@@ -25,7 +26,7 @@ class TestCreateCastMember:
     def test_create_cast_member_with_invalid_data(self):
         repository = InMemoryCastMemberRepository()
         use_case = CreateCastMember(repository)
-        cast_member = CreateCastMember.Input(name="", type=CastMemberType.ACTOR)
+        cast_member = CreateCastMemberRequest(name="", type=CastMemberType.ACTOR)
 
         with pytest.raises(
             InvalidCastMemberData, match="Name cannot be empty"
@@ -38,7 +39,7 @@ class TestCreateCastMember:
     def test_create_cast_member_with_invalid_type(self):
         repository = InMemoryCastMemberRepository()
         use_case = CreateCastMember(repository)
-        cast_member = CreateCastMember.Input(name="Peter", type="")  # type: ignore
+        cast_member = CreateCastMemberRequest(name="Peter", type="")  # type: ignore
 
         with pytest.raises(
             InvalidCastMemberData,

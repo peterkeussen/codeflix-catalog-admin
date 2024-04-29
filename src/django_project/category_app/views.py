@@ -1,4 +1,3 @@
-
 from rest_framework import status, viewsets
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -40,7 +39,16 @@ from src.django_project.category_app.serializers import (
 
 class CategoryViewSet(viewsets.ViewSet):
     def list(self, request: Request) -> Response:
-        input = ListCategoryRequest()
+        order_by = request.query_params.get("order_by", "name")
+        ordering = request.query_params.get("ordering", "asc")
+        current_page = request.query_params.get("current_page", 1)
+        page_size = request.query_params.get("page_size", 10)
+        input = ListCategoryRequest(
+            order_by=order_by,
+            ordering=ordering,
+            current_page=int(current_page),
+            page_size=int(page_size),
+        )
         use_case = ListCategory(repository=DjangoORMCategoryRepository())
         output = use_case.execute(input)
 

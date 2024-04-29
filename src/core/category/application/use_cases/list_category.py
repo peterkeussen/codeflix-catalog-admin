@@ -1,4 +1,6 @@
-from dataclasses import dataclass
+from abc import ABC
+from dataclasses import dataclass, field
+from typing import Generic, TypeVar
 from uuid import UUID
 
 from src.core.category.domain.category_repository import CategoryRepository
@@ -6,7 +8,10 @@ from src.core.category.domain.category_repository import CategoryRepository
 
 @dataclass
 class ListCategoryRequest:
-    pass
+    order_by: str = "name"
+    ordering: str = "asc"
+    current_page: int = 1
+    page_size: int = 10
 
 
 @dataclass
@@ -18,8 +23,24 @@ class CategoryOutput:
 
 
 @dataclass
-class ListCategoryResponse:
-    data: list[CategoryOutput]
+class ListOutputMeta:
+    current_page: int = 1
+    page_size: int = 10
+    total: int = 0
+
+
+T = TypeVar("T")
+
+
+@dataclass
+class ListOutput(Generic[T], ABC):
+    data: list[T] = field(default_factory=list)
+    meta: ListOutputMeta = field(default_factory=ListOutputMeta)
+
+
+@dataclass
+class ListCategoryResponse(ListOutput[CategoryOutput]):
+    pass
 
 
 class ListCategory:
@@ -28,9 +49,8 @@ class ListCategory:
 
     def execute(self, request: ListCategoryRequest) -> ListCategoryResponse:
         categories = self.repository.list()
-
-        return ListCategoryResponse(
-            data=[
+        sorted_categories = sorted(
+            [
                 CategoryOutput(
                     id=category.id,
                     name=category.name,
@@ -38,5 +58,21 @@ class ListCategory:
                     is_active=category.is_active,
                 )
                 for category in categories
-            ]
+            ],
+            key=lambda category: getattr(category, request.order_by),
+            reverse=False if request.ordering == "asc" else True,
+        )
+
+        page_offset = (request.current_page - 1) * request.page_size
+        categories_page = sorted_categories[
+            page_offset : page_offset + request.page_size
+        ]
+
+        return ListCategoryResponse(
+            data=categories_page,
+            meta=ListOutputMeta(
+                current_page=request.current_page,
+                page_size=request.page_size,
+                total=len(sorted_categories),
+            ),
         )

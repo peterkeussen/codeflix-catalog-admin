@@ -41,7 +41,6 @@ class DjangoORMGenreRepository(GenreRepository):
 
     def delete(self, genre: Genre) -> None:
         GenreORM.objects.get(id=genre.id).delete()
-        
 
     def update(self, genre: Genre) -> None:
         try:

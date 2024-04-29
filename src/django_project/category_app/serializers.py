@@ -10,8 +10,15 @@ class CategoryResponseSerializer(serializers.Serializer):
     is_active = serializers.BooleanField()
 
 
+class ListOutputMetaSerializer(serializers.Serializer):
+    current_page = serializers.IntegerField()
+    page_size = serializers.IntegerField()
+    total = serializers.IntegerField()
+
+
 class ListCategoryResponseSerializer(serializers.Serializer):
     data = CategoryResponseSerializer(many=True)  # type: ignore
+    meta = ListOutputMetaSerializer()
 
 
 class RetrieveCategoryRequestSerializer(serializers.Serializer):

@@ -17,6 +17,19 @@ class TestCategory:
         with pytest.raises(ValueError, match="Name must be less than 255 characters"):
             Category(name="a" * 256)
 
+    def test_description_must_have_less_than_1024_characters(self):
+        with pytest.raises(
+            ValueError, match="Description must be less than 1024 characters"
+        ):
+            Category(name="Movie", description="a" * 1025)
+
+    def test_name_and_description_caracters_limits(self):
+        with pytest.raises(
+            ValueError,
+            match="Name must be less than 255 characters,Description must be less than 1024 characters",
+        ):
+            Category(name="a" * 256, description="a" * 1025)
+
     def test_category_must_be_created_with_id_as_uuid_by_default(self):
         category = Category(name="Movie")
 

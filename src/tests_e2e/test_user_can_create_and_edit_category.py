@@ -1,6 +1,8 @@
 import pytest
 from rest_framework.test import APIClient
 
+from src.core.category.application.use_cases.list_category import ListOutputMeta
+
 
 @pytest.mark.django_db
 class TestCreateAndEditCategory:
@@ -9,7 +11,10 @@ class TestCreateAndEditCategory:
 
         # Verifica que a lista está vazia
         list_response = api_client.get("/api/categories/")
-        assert list_response.data == {"data": []}
+        assert list_response.data == {
+            "data": [],
+            "meta": {"current_page": 1, "page_size": 10, "total": 0},
+        }
 
         # Cria uma categoria
         create_response = api_client.post(
@@ -32,7 +37,8 @@ class TestCreateAndEditCategory:
                     "description": "Movie description",
                     "is_active": True,
                 }
-            ]
+            ],
+            "meta": {"current_page": 1, "page_size": 10, "total": 1},
         }
 
         # Edita da informação da categoria
@@ -56,7 +62,8 @@ class TestCreateAndEditCategory:
                     "description": "Movie description 2",
                     "is_active": True,
                 },
-            ]
+            ],
+            "meta": {"current_page": 1, "page_size": 10, "total": 1},
         }
 
         # Editar parcialmente a categoria
@@ -77,7 +84,8 @@ class TestCreateAndEditCategory:
                     "description": "Movie description 2",
                     "is_active": True,
                 },
-            ]
+            ],
+            "meta": {"current_page": 1, "page_size": 10, "total": 1},
         }
 
         # Deleta a categoria

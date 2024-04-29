@@ -5,26 +5,23 @@ from src.core.cast_member.application.use_case.exceptions import CastmemberNotFo
 from src.core.cast_member.domain.cast_member import CastMemberType
 
 
+@dataclass
+class UpdateCastMemberResquest:
+    id: UUID
+    name: str
+    type: CastMemberType
+
+
 class UpdateCastMember:
     def __init__(self, repository):
         self.repository = repository
 
-    @dataclass
-    class Input:
-        id: UUID
-        name: str
-        type: CastMemberType
-
-    @dataclass
-    class Output:
-        id: UUID
-
-    def execute(self, input: Input):
-        cast_member = self.repository.get_by_id(input.id)
+    def execute(self, request: UpdateCastMemberResquest) -> None:
+        cast_member = self.repository.get_by_id(request.id)
 
         if cast_member is None:
-            raise CastmemberNotFound(f"CastMember id {input.id} not found")
+            raise CastmemberNotFound(f"CastMember id {request.id} not found")
 
-        cast_member.update(input.name, input.type)
+        cast_member.update(request.name, request.type)
         self.repository.update(cast_member)
         return cast_member

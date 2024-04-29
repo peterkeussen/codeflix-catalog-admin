@@ -1,36 +1,40 @@
-import uuid
-from dataclasses import dataclass, field
-from uuid import UUID
+from dataclasses import dataclass
+
+from src._shared.entity import Entity
 
 
 @dataclass
-class Category:
+class Category(Entity):
     name: str
     description: str = ""
     is_active: bool = True
-    id: UUID = field(default_factory=uuid.uuid4)
 
     def __post_init__(self):
         self.validate()
 
     def validate(self):
         if len(self.name) > 255:
-            raise ValueError("Name must be less than 255 characters")
+            self.notification.add_error("Name", "must be less than 255 characters")
+            # raise ValueError("Name must be less than 255 characters")
 
         if not self.name:
-            raise ValueError("Name cannot be empty")
+            self.notification.add_error("Name", "cannot be empty")
+            # raise ValueError("Name cannot be empty")
+
+        if len(self.description) > 1024:
+            self.notification.add_error(
+                "Description", "must be less than 1024 characters"
+            )
+            # raise ValueError("Description must be less than 1024 characters")
+
+        if self.notification.has_errors:
+            raise ValueError(self.notification.errors)
 
     def __str__(self) -> str:
         return f"{self.name} - {self.description} ({self.is_active})"
 
     def __repr__(self) -> str:
         return f"<Category {self.name} ({self.id})>"
-
-    def __eq__(self, other) -> bool:
-        if not isinstance(other, Category):
-            return False
-
-        return self.id == other.id
 
     def update(self, name, description):
         self.name = name

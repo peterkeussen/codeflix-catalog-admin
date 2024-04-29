@@ -2,6 +2,7 @@ import pytest
 
 from src.core.cast_member.application.use_case.update_cast_member import (
     UpdateCastMember,
+    UpdateCastMemberResquest,
 )
 from src.core.cast_member.domain.cast_member import CastMember, CastMemberType
 from src.core.cast_member.infra.in_memory_cast_member_repositry import (
@@ -18,7 +19,7 @@ class TestUpdateCastMember:
 
         repository = InMemoryCastMemberRepository([cast_member])
         use_case = UpdateCastMember(repository)
-        input_cast = UpdateCastMember.Input(
+        input_cast = UpdateCastMemberResquest(
             id=cast_member.id, name="Peter", type=CastMemberType.DIRECTOR
         )
         use_case.execute(input_cast)
@@ -37,7 +38,7 @@ class TestUpdateCastMember:
 
         repository = InMemoryCastMemberRepository([cast_member])
         use_case = UpdateCastMember(repository)
-        input_cast = UpdateCastMember.Input(
+        input_cast = UpdateCastMemberResquest(
             id=cast_member.id, name="Peter", type=""  # type: ignore
         )
 
