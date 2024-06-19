@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, create_autospec
 
 import pytest
 
-from src.core.category.application.use_cases.exceptions import (
+from src.core.category.application.exceptions import (
     CategoryAlreadyExistsException,
     CategoryDoesNotExistsException,
     InvalidCategoryData,

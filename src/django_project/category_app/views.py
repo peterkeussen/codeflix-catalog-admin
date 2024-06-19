@@ -2,6 +2,7 @@ from rest_framework import status, viewsets
 from rest_framework.request import Request
 from rest_framework.response import Response
 
+from src.core.category.application.exceptions import CategoryDoesNotExistsException
 from src.core.category.application.use_cases.create_category import (
     CreateCategory,
     CreateCategoryRequest,
@@ -10,17 +11,11 @@ from src.core.category.application.use_cases.delete_category import (
     DeleteCategory,
     DeleteCategoryRequest,
 )
-from src.core.category.application.use_cases.exceptions import (
-    CategoryDoesNotExistsException,
-)
 from src.core.category.application.use_cases.get_category import (
     GetCategory,
     GetCategoryRequest,
 )
-from src.core.category.application.use_cases.list_category import (
-    ListCategory,
-    ListCategoryRequest,
-)
+from src.core.category.application.use_cases.list_category import ListCategory
 from src.core.category.application.use_cases.update_category import (
     UpdateCategory,
     UpdateCategoryRequest,
@@ -43,11 +38,13 @@ class CategoryViewSet(viewsets.ViewSet):
         ordering = request.query_params.get("ordering", "asc")
         current_page = request.query_params.get("current_page", 1)
         page_size = request.query_params.get("page_size", 10)
-        input = ListCategoryRequest(
+        search = request.query_params.get("search", "")
+        input = ListCategory.Input(
             order_by=order_by,
             ordering=ordering,
             current_page=int(current_page),
             page_size=int(page_size),
+            search=search,
         )
         use_case = ListCategory(repository=DjangoORMCategoryRepository())
         output = use_case.execute(input)

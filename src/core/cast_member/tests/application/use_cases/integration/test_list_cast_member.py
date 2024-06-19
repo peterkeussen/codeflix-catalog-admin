@@ -36,6 +36,7 @@ class TestListCastMember:
             meta=ListCastMemberOutputMeta(
                 current_page=1,
                 page_size=10,
+                num_pages=1,
                 total=2,
             ),
         )

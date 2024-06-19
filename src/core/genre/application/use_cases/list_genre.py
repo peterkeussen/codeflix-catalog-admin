@@ -26,6 +26,7 @@ class GenreOutput:
 class ListGenreOutputMeta:
     current_page: int = 1
     page_size: int = 10
+    num_pages: int = 0
     total: int = 0
 
 

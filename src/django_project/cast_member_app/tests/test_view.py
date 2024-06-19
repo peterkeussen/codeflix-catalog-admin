@@ -49,7 +49,7 @@ class TestListAPI:
                     "type": actor.type,
                 },
             ],
-            "meta": {"current_page": 1, "page_size": 10, "total": 2},
+            "meta": {"current_page": 1, "num_pages": 1, "page_size": 10, "total": 2},
         }
 
         assert response.status_code == status.HTTP_200_OK

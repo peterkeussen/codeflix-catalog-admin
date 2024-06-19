@@ -33,5 +33,15 @@ class InMemoryCategoryRepository(CategoryRepository):
             self.categories.remove(old_category)
             self.categories.append(category)
 
-    def list(self) -> list[Category]:
+    def list(
+        self,
+        order_by: str = "name",
+        ordering: str = "asc",
+        current_page: int = 1,
+        page_size: int = 10,
+        search: str = "",
+    ) -> list[Category]:
         return [category for category in self.categories]
+
+    def count(self) -> int:
+        return len(self.categories)

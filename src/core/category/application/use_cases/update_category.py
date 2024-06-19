@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Optional
 from uuid import UUID
 
-from src.core.category.application.use_cases.exceptions import (
+from src.core.category.application.exceptions import (
     CategoryDoesNotExistsException,
     InvalidCategoryData,
 )

@@ -27,5 +27,16 @@ class CategoryRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def list(self) -> list[Category]:
+    def list(
+        self,
+        order_by: str = "name",
+        ordering: str = "asc",
+        current_page: int = 1,
+        page_size: int = 10,
+        search: str = "",
+    ) -> list[Category]:
+        raise NotImplementedError
+
+    @abstractmethod
+    def count(self) -> int:
         raise NotImplementedError

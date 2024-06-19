@@ -37,11 +37,13 @@ class CastMemberViewSet(viewsets.ViewSet):
         ordering = request.query_params.get("ordering", "asc")
         current_page = request.query_params.get("current_page", 1)
         page_size = request.query_params.get("page_size", 10)
+        search = request.query_params.get("search", "")
         input = ListCastMemberRequest(
             order_by=order_by,
             ordering=ordering,
             current_page=int(current_page),
             page_size=int(page_size),
+            search=search,
         )
         use_case = ListCastMember(repository=DjangoORMCastMemberRepository())
         output = use_case.execute(input)

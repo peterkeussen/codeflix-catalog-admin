@@ -1,5 +1,9 @@
 from rest_framework import serializers
 
+from src.django_project._shared.serializers.serializers import (
+    ListPaginatorResponseSerializer,
+)
+
 
 class GenreOutputSerializer(serializers.Serializer):
     id = serializers.UUIDField()
@@ -8,15 +12,8 @@ class GenreOutputSerializer(serializers.Serializer):
     categories = serializers.ListField(child=serializers.UUIDField())
 
 
-class ListOutputMetaSerializer(serializers.Serializer):
-    current_page = serializers.IntegerField()
-    page_size = serializers.IntegerField()
-    total = serializers.IntegerField()
-
-
-class ListGenreResponseSerializer(serializers.Serializer):
+class ListGenreResponseSerializer(ListPaginatorResponseSerializer):
     data = GenreOutputSerializer(many=True)  # type: ignore
-    meta = ListOutputMetaSerializer()
 
 
 class SetField(serializers.ListField):

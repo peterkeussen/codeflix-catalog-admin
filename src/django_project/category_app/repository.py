@@ -1,5 +1,7 @@
-from typing import Optional, Union
+from typing import Union
 from uuid import UUID
+
+from django.core.paginator import Paginator
 
 from src.core.category.domain.category import Category
 from src.core.category.domain.category_repository import CategoryRepository
@@ -24,9 +26,39 @@ class DjangoORMCategoryRepository(CategoryRepository):
     def delete(self, id: UUID) -> None:
         self.category_model.objects.filter(id=id).delete()
 
-    def list(self) -> list[Category]:
-        categories = self.category_model.objects.all()
+    def list(
+        self,
+        order_by: str = "name",
+        ordering: str = "asc",
+        current_page: int = 1,
+        page_size: int = 10,
+        search: str = "",
+    ) -> list[Category]:
+        kwargs = {"{0}__{1}".format(order_by, "icontains"): search}
+        if search:
+            categories = self.category_model.objects.filter(**kwargs)
+        else:
+            categories = self.category_model.objects.all()
+
+        if order_by is not None:
+            categories = categories.order_by(order_by)
+
+        if ordering is not None:
+            if ordering == "asc":
+                categories = categories.order_by(order_by)
+            else:
+                categories = categories.order_by(f"-{order_by}")
+
+        if page_size is not None:
+            paginator = Paginator(categories, page_size)
+            paginator_page = paginator.page(current_page)
+            categories = paginator_page.object_list
+        else:
+            categories = list(categories.all())
+
         return [CategoryModelMapper.to_entity(category) for category in categories]
+
+        # return [CategoryModelMapper.to_entity(category) for category in categories]
         # return [
         #     Category(
         #         id=category.id,
@@ -50,6 +82,9 @@ class DjangoORMCategoryRepository(CategoryRepository):
             return CategoryModelMapper.to_entity(category)
         except self.category_model.DoesNotExist:
             return None
+
+    def count(self) -> int:
+        return self.category_model.objects.count()
 
 
 class CategoryModelMapper:

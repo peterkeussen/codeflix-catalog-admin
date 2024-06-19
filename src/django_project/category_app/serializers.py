@@ -2,6 +2,10 @@ from email.policy import default
 
 from rest_framework import serializers
 
+from src.django_project._shared.serializers.serializers import (
+    ListPaginatorResponseSerializer,
+)
+
 
 class CategoryResponseSerializer(serializers.Serializer):
     id = serializers.UUIDField()
@@ -10,15 +14,8 @@ class CategoryResponseSerializer(serializers.Serializer):
     is_active = serializers.BooleanField()
 
 
-class ListOutputMetaSerializer(serializers.Serializer):
-    current_page = serializers.IntegerField()
-    page_size = serializers.IntegerField()
-    total = serializers.IntegerField()
-
-
-class ListCategoryResponseSerializer(serializers.Serializer):
+class ListCategoryResponseSerializer(ListPaginatorResponseSerializer):
     data = CategoryResponseSerializer(many=True)  # type: ignore
-    meta = ListOutputMetaSerializer()
 
 
 class RetrieveCategoryRequestSerializer(serializers.Serializer):

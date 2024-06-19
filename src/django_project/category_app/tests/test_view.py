@@ -58,7 +58,7 @@ class TestListAPI:
                     "is_active": category_movie.is_active,
                 },
             ],
-            "meta": {"current_page": 1, "page_size": 10, "total": 2},
+            "meta": {"current_page": 1, "num_pages": 1, "page_size": 10, "total": 2},
         }
         assert response.status_code == status.HTTP_200_OK
         assert response.data == expected_data
@@ -90,7 +90,7 @@ class TestListAPI:
                     "is_active": category_movie.is_active,
                 },
             ],
-            "meta": {"current_page": 1, "page_size": 10, "total": 2},
+            "meta": {"current_page": 1, "num_pages": 1, "page_size": 10, "total": 2},
         }
         assert response.status_code == status.HTTP_200_OK
         assert response.data == expected_data
@@ -122,7 +122,7 @@ class TestListAPI:
                     "is_active": category_movie.is_active,
                 },
             ],
-            "meta": {"current_page": 1, "page_size": 10, "total": 2},
+            "meta": {"current_page": 1, "num_pages": 1, "page_size": 10, "total": 2},
         }
         assert response.status_code == status.HTTP_200_OK
         assert response.data == expected_data
@@ -150,7 +150,7 @@ class TestListAPI:
                     "is_active": category_movie.is_active,
                 },
             ],
-            "meta": {"current_page": 1, "page_size": 1, "total": 2},
+            "meta": {"current_page": 1, "num_pages": 3, "page_size": 1, "total": 2},
         }
         assert response.status_code == status.HTTP_200_OK
         assert response.data == expected_data

@@ -1,5 +1,6 @@
 from abc import ABC
 from dataclasses import dataclass, field
+from re import search
 from typing import Generic, TypeVar
 from uuid import UUID
 
@@ -12,6 +13,7 @@ class ListCastMemberRequest:
     ordering: str = "asc"
     current_page: int = 1
     page_size: int = 10
+    search: str = ""
 
 
 @dataclass
@@ -25,6 +27,7 @@ class CastMemberOutput:
 class ListCastMemberOutputMeta:
     current_page: int
     page_size: int
+    num_pages: int
     total: int
 
 
@@ -64,12 +67,13 @@ class ListCastMember:
         cast_members_page = sorted_cast_members[
             page_offset : page_offset + request.page_size
         ]
-
+        total = len(sorted_cast_members)
         return ListCastMemberResponse(
             data=cast_members_page,
             meta=ListCastMemberOutputMeta(
                 current_page=request.current_page,
                 page_size=request.page_size,
+                num_pages=(total // request.page_size) + 1,
                 total=len(sorted_cast_members),
             ),
         )

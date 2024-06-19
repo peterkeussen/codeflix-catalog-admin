@@ -43,7 +43,9 @@ class TestListGenre:
                     categories={movie.id, documentary.id},
                 )
             ],
-            meta=ListGenreOutputMeta(current_page=1, page_size=10, total=1),
+            meta=ListGenreOutputMeta(
+                current_page=1, page_size=10, total=1, num_pages=0
+            ),
         )
         assert output.data[0].categories == {movie.id, documentary.id}
 

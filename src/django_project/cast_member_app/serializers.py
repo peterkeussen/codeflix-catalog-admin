@@ -1,6 +1,9 @@
 from rest_framework import serializers
 
 from src.core.cast_member.domain.cast_member import CastMemberType
+from src.django_project._shared.serializers.serializers import (
+    ListPaginatorResponseSerializer,
+)
 
 
 class CastMemberTypeField(serializers.ChoiceField):
@@ -21,15 +24,8 @@ class CastMemberResponseSerializer(serializers.Serializer):
     type = CastMemberTypeField(required=True)
 
 
-class ListOutoutMetaSerializer(serializers.Serializer):
-    current_page = serializers.IntegerField()
-    page_size = serializers.IntegerField()
-    total = serializers.IntegerField()
-
-
-class ListCastMemberResponseSerializer(serializers.Serializer):
+class ListCastMemberResponseSerializer(ListPaginatorResponseSerializer):
     data = CastMemberResponseSerializer(many=True)  # type: ignore
-    meta = ListOutoutMetaSerializer()
 
 
 class RetrieveCastMemberResponseSerializer(serializers.Serializer):

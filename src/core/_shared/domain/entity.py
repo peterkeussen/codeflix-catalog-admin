@@ -2,13 +2,13 @@ import uuid
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 
-from src._shared.notification import Notification
+from src.core._shared.domain.notification import Notification
 
 
 @dataclass(kw_only=True)
 class Entity(ABC):
     id: uuid.UUID = field(default_factory=uuid.uuid4)
-    notification: Notification = field(default_factory=Notification)
+    notification: Notification = field(default_factory=Notification, init=False)
 
     def __eq__(self, other) -> bool:
         if not isinstance(other, self.__class__):
